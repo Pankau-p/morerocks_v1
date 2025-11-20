@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import { Chord, Scale } from "tonal";
+import * as Chord from "@tonaljs/chord";
+import * as Scale from "@tonaljs/scale";
 
 const FretboardContext = createContext();
 

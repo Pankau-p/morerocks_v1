@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tonaljs/chord": "^6.1.1",
+    "@tonaljs/scale": "^4.13.3",
     "@tonaljs/tonal": "^4.10.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
