@@ -11,6 +11,11 @@ export function FretboardProvider({ children }) {
     const [highlightedNotesChord, setHighlightedNotesChord] = useState([]);
     const [highlightedNotesScale, setHighlightedNotesScale] = useState([]);
 
+    const [selectedNote, setSelectedNote] = useState(null);
+
+    // Start fret for the visible fretboard
+    const [startFret, setStartFret] = useState(1);
+
     // Compute highlighted notes and chords when chord changes using tonal.js
     const updateChord = (chordName) => {
         setSelectedChord(chordName);
@@ -25,14 +30,23 @@ export function FretboardProvider({ children }) {
         setHighlightedNotesScale(notes);
     };
 
+    const updateSelectedNote = (note) => {
+        setSelectedNote(note);
+    }
+
+
     return (
         <FretboardContext.Provider value={{
             selectedChord,
             selectedScale,
             highlightedNotesChord,
             highlightedNotesScale,
+            selectedNote,
             updateChord,
-            updateScale
+            updateScale,
+            updateSelectedNote,
+            startFret,
+            setStartFret,
         }}>
             {children}
         </FretboardContext.Provider>
