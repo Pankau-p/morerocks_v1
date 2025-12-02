@@ -1,4 +1,4 @@
-export default function SidebarLeft() {
+export default function Sidebar() {
   return (
     <div style={{ padding: '10px', borderLeft: '1px solid #ccc', width: '200px' }}>
       <p>Sidebar (chord/scale controls go here)</p>

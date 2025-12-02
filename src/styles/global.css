@@ -1,0 +1,26 @@
+/* global.css */
+
+/* Global defaults that *use* the values from theme.css */
+
+html, body {
+  height: 100%;
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* Links */
+a {
+  color: var(--color-highlight);
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* Defaults for body layout if needed */
+body {
+  margin: 0;
+}
+
+/* Media queries can rely on theme tokens too if desired */

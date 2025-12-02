@@ -1,0 +1,52 @@
+:root {
+  /* -----------------------------
+     COLORS — GLOBAL
+  ------------------------------*/
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-text-highlight: #38bacc;
+
+  /* Fretboard greys */
+  --color-fretboard-bg: #1f1f1f;
+
+  /* Fret highlight colors */
+  --color-fret-1: #ffb3b3;
+  --color-fret-2: #b3ffb3;
+  --color-fret-3: #b3d9ff;
+  --color-fret-4: #ceb3ff;
+  --color-fret-5: #ffe8b3; /* suggested soft yellow */
+
+  /* -----------------------------
+     TYPOGRAPHY
+  ------------------------------*/
+  /* 1rem = 16px (browser default)
+     Poppins Medium base scale
+  */
+  --font-family-base: "Poppins", sans-serif;
+  --font-weight-medium: 500;
+
+  --font-size-text: 0.875rem;      /* 14px */
+  --font-size-header: 1rem;        /* 16px */
+  --font-size-fret-letter: 1.125rem; /* 18px */
+
+  /* -----------------------------
+     SPACING (optional but useful)
+  ------------------------------*/
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+
+  /* -----------------------------
+     BORDERS / RADII
+  ------------------------------*/
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* -----------------------------
+     SHADOWS (optional)
+  ------------------------------*/
+  --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
