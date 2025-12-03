@@ -4,6 +4,8 @@
 
 html, body {
   height: 100%;
+  margin: 0;
+  overflow: hidden; /* prevents page scroll */
   font-family: var(--font-base);
   color: var(--color-text);
   background: var(--color-bg);

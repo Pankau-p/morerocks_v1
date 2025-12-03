@@ -1,0 +1,53 @@
+.sidebar {
+  width: 240px;
+  /* background: #1f1f1f; */
+  color: #ffffff;
+  padding: 1rem;
+  height: 100vh;       /* full viewport height */
+  overflow-y: auto;    /* enables vertical scrolling */
+  display: flex;
+  flex-direction: column;  /* stack items vertically */
+  align-items: flex-start; /* left align all children */
+}
+
+.sidebar__section,
+.sidebar__category,
+.sidebar__subitem {
+  display: flex;
+  flex-direction: column; /* make sure all nested items stack */
+  align-items: flex-start; /* left-justify text and children */
+}
+
+.sidebar__section {
+  margin: 1.5rem 0;
+}
+
+.sidebar__section-title {
+  font-size: var(--font-size-header);
+  cursor: pointer;
+  padding: 1rem 0;
+  
+}
+
+.sidebar__category {
+  /* margin-left: 0.5rem; */
+}
+
+.sidebar__category-title {
+  font-size: var(--font-size-text);
+  cursor: pointer;
+  padding: 0.4rem 0;
+}
+
+.sidebar__subitem {
+  padding-left: 0.4rem;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+}
+
+/* Optional hover */
+.sidebar__section-title:hover,
+.sidebar__category-title:hover,
+.sidebar__subitem:hover {
+  color: #38bacc;
+}
