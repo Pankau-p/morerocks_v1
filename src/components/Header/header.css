@@ -1,54 +1,47 @@
-/* =========================================
-   HEADER (BEM)
-   ========================================= */
-
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   width: 100%;
+  max-width: 1280px; /* optional, keeps it from getting too wide */
   height: 5rem;
 
+  margin: 0 auto; /* centers header horizontally */
+  padding: 0 2rem; /* consistent horizontal padding */
   background-color: var(--color-bg);
-  padding: 0 var(--space-lg);
-  border-bottom: 1px solid var(--color-grey-1);
+  /* border-bottom: 1px solid var(--color-grey-1); */
+  box-sizing: border-box;
 }
 
-/* -----------------------------------------
-   LOGO
-   ----------------------------------------- */
+/* Logo stays left-aligned inside header */
 .header__logo {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-sm, 0.5rem);
   font-size: 1rem;
   font-weight: 600;
   color: var(--color-text);
   white-space: nowrap;
 }
 
-/* -----------------------------------------
-   SEARCH BAR
-   ----------------------------------------- */
+/* Search bar in center */
 .header__search {
   flex: 1;
   max-width: 40rem;
-  margin: 0 var(--space-lg);
-  border: 0.1rem solid white;
-  background-color: (--color-grey-1);
+  margin: 0 2rem; /* space on left/right from logo and user */
+  display: flex;
+  align-items: center;
 }
 
 .header__search-input {
   width: 100%;
   padding: 0.5rem 0.75rem;
   font-size: 0.9rem;
-
   background-color: var(--color-grey-1);
   color: var(--color-text);
   border: 1px solid var(--color-grey-2);
   border-radius: 0.5rem;
-
   outline: none;
 }
 
@@ -56,13 +49,11 @@
   border-color: var(--color-highlight);
 }
 
-/* -----------------------------------------
-   USER AREA
-   ----------------------------------------- */
+/* User area stays right */
 .header__user {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-md, 1rem);
 }
 
 .header__user-avatar {

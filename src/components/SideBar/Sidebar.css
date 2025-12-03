@@ -1,21 +1,19 @@
 .sidebar {
-  width: 240px;
-  /* background: #1f1f1f; */
+  width: 200px; /* fixed width to match App.css */
+  height: 100%; /* full height of parent */
+  background-color: #1f1f1f; /* optional dark background */
   color: #ffffff;
-  padding: 1rem;
-  height: 100vh; /* full viewport height */
-  overflow-y: auto; /* enables vertical scrolling */
-  display: flex;
-  flex-direction: column; /* stack items vertically */
-  align-items: flex-start; /* left align all children */
+  padding: 1rem 0 1rem 2rem;
+  box-sizing: border-box;
+  overflow-y: auto; /* scroll if content overflows */
 }
 
 .sidebar__section,
 .sidebar__category,
 .sidebar__subitem {
   display: flex;
-  flex-direction: column; /* make sure all nested items stack */
-  align-items: flex-start; /* left-justify text and children */
+  flex-direction: column; /* stack items vertically */
+  align-items: flex-start; /* left-justify text */
 }
 
 .sidebar__section {
@@ -26,10 +24,6 @@
   font-size: var(--font-size-header);
   cursor: pointer;
   padding: 1rem 0;
-}
-
-.sidebar__category {
-  /* margin-left: 0.5rem; */
 }
 
 .sidebar__category-title {
@@ -44,7 +38,7 @@
   cursor: pointer;
 }
 
-/* Optional hover */
+/* Hover effect */
 .sidebar__section-title:hover,
 .sidebar__category-title:hover,
 .sidebar__subitem:hover {
