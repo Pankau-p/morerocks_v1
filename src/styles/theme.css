@@ -23,11 +23,11 @@
   /* 1rem = 16px (browser default)
      Poppins Medium base scale
   */
-  --font-family-base: "Poppins", sans-serif;
+  --font-family-base: 'Poppins', sans-serif;
   --font-weight-medium: 500;
 
-  --font-size-text: 0.875rem;      /* 14px */
-  --font-size-header: 1rem;        /* 16px */
+  --font-size-text: 0.875rem; /* 14px */
+  --font-size-header: 1rem; /* 16px */
   --font-size-fret-letter: 1.125rem; /* 18px */
 
   /* -----------------------------

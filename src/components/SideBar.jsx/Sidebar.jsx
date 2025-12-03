@@ -1,33 +1,46 @@
-import React, { useState } from "react";
-import "./Sidebar.css";
+import React, { useState } from 'react';
+import './Sidebar.css';
 
 const sidebarData = [
   {
-    title: "CHORDS",
+    title: 'CHORDS',
     categories: [
-      { name: "Major Chords", items: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"] },
-      { name: "Minor Chords", items: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"] },
-      { name: "Diminished Chords", items: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"] },
-      { name: "Augmented Chords", items: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"] },
-      { name: "Dominant Chords", items: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"] },
+      {
+        name: 'Major Chords',
+        items: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+      },
+      {
+        name: 'Minor Chords',
+        items: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+      },
+      {
+        name: 'Diminished Chords',
+        items: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+      },
+      {
+        name: 'Augmented Chords',
+        items: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+      },
+      {
+        name: 'Dominant Chords',
+        items: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+      },
     ],
   },
   {
-    title: "SCALES",
+    title: 'SCALES',
     categories: [
-      { name: "Major Scale", items: ["C Major", "C# Major", "D Major", "D# Major"] },
-      { name: "Minor Scale", items: ["C Minor", "C# Minor", "D Minor", "D# Minor"] },
-      { name: "Major Blues Scale", items: ["C", "C#", "D", "D#"] },
-      { name: "Minor Blues Scale", items: ["C", "C#", "D", "D#"] },
-      { name: "Mixolydian Scale", items: ["C", "C#", "D", "D#"] },
-      { name: "Phrygian Scale", items: ["C", "C#", "D", "D#"] },
+      { name: 'Major Scale', items: ['C Major', 'C# Major', 'D Major', 'D# Major'] },
+      { name: 'Minor Scale', items: ['C Minor', 'C# Minor', 'D Minor', 'D# Minor'] },
+      { name: 'Major Blues Scale', items: ['C', 'C#', 'D', 'D#'] },
+      { name: 'Minor Blues Scale', items: ['C', 'C#', 'D', 'D#'] },
+      { name: 'Mixolydian Scale', items: ['C', 'C#', 'D', 'D#'] },
+      { name: 'Phrygian Scale', items: ['C', 'C#', 'D', 'D#'] },
     ],
   },
   {
-    title: "CREATIONS",
-    categories: [
-      { name: "Playlists", items: ["Create New Playlist"] },
-    ],
+    title: 'CREATIONS',
+    categories: [{ name: 'Playlists', items: ['Create New Playlist'] }],
   },
 ];
 export default function Sidebar() {

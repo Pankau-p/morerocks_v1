@@ -1,9 +1,9 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Chord } from '@tonaljs/tonal';
-import './styles/reset.css'
-import './styles/theme.css'
-import './styles/global.css'
+import './styles/reset.css';
+import './styles/theme.css';
+import './styles/global.css';
 import App from './App.jsx';
 
 console.log(Chord.get('Cmaj7'));

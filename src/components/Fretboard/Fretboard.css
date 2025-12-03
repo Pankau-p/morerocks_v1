@@ -1,0 +1,176 @@
+.fretboard {
+  position: relative;
+  width: 73vw; /* 2/3 screen width */
+  height: 40vh; /* 1/4 screen height */
+  background-color: var(--color-bg, #1f1f1f);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  box-sizing: border-box;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+}
+
+.fretboard__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+}
+
+.fretboard__button {
+  background-color: var(--color-accent, #38bacc);
+  color: var(--color-text, #fff);
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  font-size: var(--font-size-text, 0.875rem);
+}
+
+.fretboard__button:hover {
+  background-color: #2dd1d8;
+}
+
+.fretboard__start-label {
+  font-size: var(--font-size-text, 0.875rem);
+  color: var(--color-text, #fff);
+}
+
+.fretboard__inner {
+  display: flex;
+  height: 100%;
+}
+
+.fretboard__labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 0.5rem; /* space between letters and fretboard */
+  padding-top: 0.68rem;
+}
+
+.fretboard__string-label {
+  color: #fff;
+  font-size: var(--font-size-text, 0.875rem);
+  text-align: right;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Fretboard grid */
+.fretboard__grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  position: relative;
+}
+
+/* Vertical frets */
+.fretboard__fret-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #fff;
+  pointer-events: none;
+}
+
+/* Fret markers (dots) */
+.fretboard__marker {
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Fret numbers inside small circles (between frets) */
+.fretboard__fret-number {
+  position: absolute;
+  top: -12px;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* Each string row */
+.fretboard__string {
+  display: flex;
+  position: relative;
+  flex: 1;
+  align-items: center;
+}
+
+/* wrapper for tile */
+.fretboard__tile-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* horizontal string line */
+.fretboard__string::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -0.5rem; /* extend slightly into label column */
+  width: calc(100% + 0.5rem);
+  height: 1px;
+  background-color: #fff;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Note tile */
+.fretboard__note {
+  width: 100%;
+  height: 80%;
+  background-color: transparent;
+  border: none;
+  font-size: var(--font-size-fret-letter, 1.125rem);
+  color: var(--color-text, #fff);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition:
+    transform 0.1s,
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.fretboard__note:hover {
+  transform: translateY(-2px);
+}
+
+.fretboard__note--highlighted {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+.fretboard__note--selected {
+  background-color: #ff6666;
+  color: #fff;
+}

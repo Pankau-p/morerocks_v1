@@ -5,12 +5,14 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: sans-serif;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -26,7 +28,8 @@ button {
   font: inherit;
 }
 
-img, svg {
+img,
+svg {
   max-width: 100%;
   display: block;
 }

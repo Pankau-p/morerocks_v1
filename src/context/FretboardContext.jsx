@@ -14,7 +14,7 @@ export function FretboardProvider({ children }) {
   const [selectedNote, setSelectedNote] = useState(null);
 
   // Start fret for the visible fretboard
-  const [startFret, setStartFret] = useState(1);
+  const [startFret, setStartFret] = useState(0);
 
   // Compute highlighted notes and chords when chord changes using tonal.js
   const updateChord = (chordName) => {
