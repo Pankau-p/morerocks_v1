@@ -32,7 +32,7 @@
 }
 
 .control-panel__button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 /* Theme colors for each button */
@@ -98,4 +98,29 @@
   font-size: 0.75rem;
   text-align: center;
   color: #fff;
+}
+
+.control-panel__label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.control-panel__fret-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.1rem 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.control-panel__fret-btn:hover {
+  /* background-color: var(--color-accent-hover, #555); */
+  transform: scale(1.5);
+}
+
+.control-panel__fret-value {
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: 600;
 }

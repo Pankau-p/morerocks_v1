@@ -18,7 +18,7 @@
   min-width: 0; /* allow content to shrink */
   border-radius: 12px; /* optional, for rectangle shape */
   overflow: hidden; /* prevent internal overflow */
-  margin: 3rem 0rem 4rem 3rem; /* space from left edge of viewport */
+  margin: 3rem 1.5rem 4rem 3rem; /* space from left edge of viewport */
 }
 
 /* Sidebar */
