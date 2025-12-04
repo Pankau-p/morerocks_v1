@@ -127,21 +127,6 @@ export default function Fretboard() {
               );
             })}
 
-          {/* Fret numbers */}
-          {Array.from({ length: visibleFretsClamped }, (_, i) => {
-            const fretNumber = startFret + i;
-            const leftPercent = ((i + 0.5) / visibleFretsClamped) * 100;
-            return (
-              <div
-                key={`fret-number-${i}`}
-                className="fretboard__fret-number"
-                style={{ left: `${leftPercent}%` }}
-              >
-                {fretNumber}
-              </div>
-            );
-          })}
-
           {/* Strings and notes */}
           {[...strings].reverse().map((stringNote, stringIndex) => (
             <div key={stringIndex} className="fretboard__string">
@@ -170,24 +155,25 @@ export default function Fretboard() {
               })}
             </div>
           ))}
+   
         </div>
+                             {/* Fret numbers */}
+          {Array.from({ length: visibleFretsClamped }, (_, i) => {
+            const fretNumber = startFret + i;
+            const leftPercent = ((i + 0.5) / visibleFretsClamped) * 100;
+            return (
+              <div
+                key={`fret-number-${i}`}
+                className="fretboard__fret-number"
+                style={{ left: `${leftPercent}%` }}
+              >
+                {fretNumber}
+              </div>
+            );
+          })}
+      
       </div>
-      {/* Start fret controls */}
-      <div className="fretboard__controls">
-        <button
-          className="fretboard__button"
-          onClick={() => setStartFret(Math.max(startFret - 1, 1))}
-        >
-          -
-        </button>
-        <span className="fretboard__start-label">Start Fret: {startFret}</span>
-        <button
-          className="fretboard__button"
-          onClick={() => setStartFret(Math.min(startFret + 1, MAX_FRET - visibleFrets + 1))}
-        >
-          +
-        </button>
-      </div>
+
     </div>
   );
 }

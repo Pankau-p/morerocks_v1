@@ -1,27 +1,101 @@
 .control-panel {
-  flex: 0 0 150px; /* fixed height for now */
-  background-color: #1f1f1f; /* slightly darker than main layer */
+  display: flex;
+  width: 76vw; /* same as fretboard */
+  height: 25vh; /* about 1/4 of screen height */
+  /* background-color: var(--color-bg, #2a2a2a); */
   padding: 1rem;
+  margin: 0 1 2rem auto; /* centered horizontally, space below */
   border-radius: 8px;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+/* ---------------- Left buttons ---------------- */
+.control-panel__left {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  color: #fff;
+  gap: 0.75rem; /* space between buttons */
+  flex: 0 0 150px; /* fixed width for buttons */
 }
 
-.control-panel__title {
-  font-size: 1rem;
-  margin: 0 0 0.5rem 0;
-}
-
-.control-panel__buttons button {
-  margin-right: 0.5rem;
+.control-panel__button {
   padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  background-color: #38bacc;
-  color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
+  color: #000;
+  font-size: 0.9rem;
   cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+  width: 15rem;
+  align-items: start;
+  
 }
 
+.control-panel__button:hover {
+  transform: translateY(-2px);
+}
+
+/* Theme colors for each button */
+.control-panel__button--fret {
+  background-color: var(--color-fret-1);
+}
+.control-panel__button--chord {
+  background-color: var(--color-fret-3);
+  color: #000;
+}
+.control-panel__button--mode {
+  background-color: var(--color-fret-4);
+}
+.control-panel__button--relative {
+  background-color: var(--color-fret-6);
+}
+
+/* ---------------- Center: recent creation ---------------- */
+.control-panel__center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-panel__recent-title {
+  font-size: var(--font-size-text, 0.875rem);
+  color: var(--color-text, #fff);
+  margin-bottom: 0.5rem;
+}
+
+.control-panel__recent-chords {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.control-panel__recent-chord {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  background-color: #555;
+  color: #fff;
+  font-size: var(--font-size-text, 0.875rem);
+}
+
+/* ---------------- Right: Circle placeholder ---------------- */
+.control-panel__right {
+  flex: 0 0 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.control-panel__circle-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px dashed #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #fff;
+}

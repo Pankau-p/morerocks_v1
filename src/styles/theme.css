@@ -5,7 +5,7 @@
   --color-bg: #000000;
   --color-text: #ffffff;
   --color-text-highlight: #38bacc;
-
+  --color-fretboard-number: #004152;
   /* Fretboard greys */
   --color-fretboard-bg: #1f1f1f;
   --color-grey-1: #1f1f1f;
@@ -16,6 +16,7 @@
   --color-fret-3: #b3d9ff;
   --color-fret-4: #ceb3ff;
   --color-fret-5: #ffe8b3; /* suggested soft yellow */
+  --color-fret-6: #C06639; 
 
   /* -----------------------------
      TYPOGRAPHY
