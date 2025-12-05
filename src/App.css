@@ -1,3 +1,13 @@
+/* App.css */
+.app-container {
+  max-width: 1400px;  /* keeps the design fixed at 1300px */
+  margin: 0 auto;     /* centers horizontally */
+  padding-left: 1rem; /* optional extra spacing */
+  padding-right: 1rem;
+  box-sizing: border-box;
+  width: 100%;        /* allows shrinking below 1300px */
+}
+
 .app__content {
   display: flex;
   height: calc(100vh - 80px); /* adjust for header */
@@ -12,7 +22,7 @@
   display: flex;
   flex-direction: column; /* Fretboard on top, ControlPanel below */
   background-color: #2a2a2a; /* grey rectangle */
-  padding: 0rem 0rem 1rem 2rem; /* space inside the rectangle */
+  padding: 0rem 0rem 1rem 0rem; /* space inside the rectangle */
   gap: 2rem;
   box-sizing: border-box;
   min-width: 0; /* allow content to shrink */
@@ -27,4 +37,18 @@
   height: 100%;
   overflow-y: auto;
   background-color: transparent; /* no background, black shows through */
+}
+
+/* Fretboard + ControlPanel fixed width at large screens */
+@media (min-width: 1300px) {
+  .fretboard{
+    width: 990px; /* example: 76% of 1300px = 988px, adjust if needed */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .control-panel {
+    width: 1000px; /* example: 76% of 1300px = 988px, adjust if needed */
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

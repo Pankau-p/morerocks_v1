@@ -8,19 +8,20 @@ import './App.css';
 function App() {
   return (
     <FretboardProvider>
-      <Header />
+      <div className="app-container">
+        <Header />
+        {/* Main horizontal layout: main-area + sidebar */}
+        <div className="app__content">
+          {/* Main content area: Fretboard + ControlPanel */}
+          <div className="main-area">
+           <Fretboard />
+            <ControlPanel />
+         </div>
 
-      {/* Main horizontal layout: main-area + sidebar */}
-      <div className="app__content">
-        {/* Main content area: Fretboard + ControlPanel */}
-        <div className="main-area">
-          <Fretboard />
-          <ControlPanel />
+         {/* Sidebar on the right */}
+         <Sidebar />
         </div>
-
-        {/* Sidebar on the right */}
-        <Sidebar />
-      </div>
+        </div>
     </FretboardProvider>
   );
 }

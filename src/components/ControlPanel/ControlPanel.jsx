@@ -1,15 +1,21 @@
 import React from 'react';
 import { useFretboard } from '../../context/FretboardContext';
-import {  Note } from '@tonaljs/tonal';
+import { Note } from '@tonaljs/tonal';
 import * as Chord from '@tonaljs/chord';
 import * as Scale from '@tonaljs/scale';
 import './ControlPanel.css';
 
 export default function ControlPanel() {
-  const { startFret, setStartFret, selectedChord, selectedScale, highlightedNotesChord,
-    highlightedNotesScale, } = useFretboard();
+  const {
+    startFret,
+    setStartFret,
+    selectedChord,
+    selectedScale,
+    highlightedNotesChord,
+    highlightedNotesScale,
+  } = useFretboard();
 
-  const MAX_FRET = 22;       // same as your Fretboard
+  const MAX_FRET = 22;
   const VISIBLE_FRETS = 8;
 
   const handleFretDown = () => {
@@ -20,35 +26,29 @@ export default function ControlPanel() {
     setStartFret((prev) => Math.min(prev + 1, MAX_FRET - VISIBLE_FRETS + 1));
   };
 
-   // Determine which is selected
   const isChord = !!selectedChord;
   const mainLabel = isChord ? 'Selected Chord:' : 'Selected Scale:';
   const mainValue = isChord ? selectedChord : selectedScale;
 
-  // Intervals and notes
   const intervals = isChord
     ? Chord.get(selectedChord)?.intervals || []
     : Scale.get(selectedScale)?.intervals || [];
   const notes = isChord ? highlightedNotesChord : highlightedNotesScale;
 
-
   const recentCreation = ['C', 'G', 'Am', 'F'];
 
-  // Helper to compute relative major/minor
   const getRelative = () => {
     if (!selectedScale) return '';
     const scale = Scale.get(selectedScale);
     if (!scale || !scale.tonic) return '';
 
     const tonic = scale.tonic;
-    const type = scale.type; // 'major' or 'minor'
+    const type = scale.type;
     if (type === 'major') {
-      // relative minor = 6th degree of scale
-      const relNote = scale.notes[5]; // 0-indexed
+      const relNote = scale.notes[5];
       return `${relNote} minor`;
     } else if (type === 'minor') {
-      // relative major = 3rd degree of scale
-      const relNote = scale.notes[2]; // 0-indexed
+      const relNote = scale.notes[2];
       return `${relNote} major`;
     }
     return '';
@@ -80,21 +80,20 @@ export default function ControlPanel() {
             : 'No chord/scale'}
         </button>
 
-                {/* Intervals button */}
+        {/* Intervals button */}
         <button className="control-panel__button control-panel__button--mode">
-          Intervals: {intervals.join(', ') || '—'}
+          Intervals: {intervals.join(', ') || ''}
         </button>
 
         {/* Notes list button */}
         <button className="control-panel__button control-panel__button--relative">
-          Notes: {notes.join(', ') || '—'}
+          Notes: {notes.join(', ') || ''}
         </button>
-     
 
         {/* Relative minor/major */}
-        <button className="control-panel__button control-panel__button--relative">
+        {/* <button className="control-panel__button control-panel__button--relative">
           Relative: {getRelative()}
-        </button>
+        </button> */}
       </div>
 
       {/* Center section */}
@@ -109,9 +108,13 @@ export default function ControlPanel() {
         </div>
       </div>
 
-      {/* Right section */}
+      {/* Right section: circle of fifths image */}
       <div className="control-panel__right">
-        <div className="control-panel__circle-placeholder">Circle of Fifths</div>
+        <img
+          src="src/assets/img/circle-of-fifths.png"
+          alt="Circle of Fifths"
+          className="control-panel__circle-image"
+        />
       </div>
     </div>
   );

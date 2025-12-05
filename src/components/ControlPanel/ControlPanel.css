@@ -40,14 +40,14 @@
   background-color: var(--color-fret-1);
 }
 .control-panel__button--chord {
-  background-color: var(--color-fret-3);
+  background-color: var(--color-fret-2);
   color: #000;
 }
 .control-panel__button--mode {
   background-color: var(--color-fret-4);
 }
 .control-panel__button--relative {
-  background-color: var(--color-fret-6);
+  background-color: var(--color-fret-5);
 }
 
 /* ---------------- Center: recent creation ---------------- */
@@ -81,9 +81,10 @@
 
 /* ---------------- Right: Circle placeholder ---------------- */
 .control-panel__right {
-  flex: 0 0 120px;
+  flex: 0 0 220px;
   display: flex;
   justify-content: center;
+  justify-content: flex-start; /* align left inside right section */
   align-items: center;
 }
 
@@ -123,4 +124,14 @@
   min-width: 1.5rem;
   text-align: center;
   font-weight: 600;
+}
+
+.control-panel__circle-image {
+  width: 160%;       /* scale relative to container width */
+  max-width: 400px; /* max size so it doesn’t overflow */
+  height: auto;     /* maintain aspect ratio */
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid #fff; /* keep border */
+  transition: transform 0.2s; /* optional for hover or animation */
 }
