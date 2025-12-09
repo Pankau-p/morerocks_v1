@@ -10,38 +10,43 @@ const getPitchClass = (note) => {
 };
 
 const PC_TO_SEMITONE = {
-  C: 0,
-  'B#': 0,
-  'C#': 1,
-  Db: 1,
+  C: 0, 'B#': 0,
+  'C#': 1, Db: 1,
   D: 2,
-  'D#': 3,
-  Eb: 3,
-  E: 4,
-  Fb: 4,
-  'E#': 5,
-  F: 5,
-  'F#': 6,
-  Gb: 6,
+  'D#': 3, Eb: 3,
+  E: 4, Fb: 4,
+  'E#': 5, F: 5,
+  'F#': 6, Gb: 6,
   G: 7,
-  'G#': 8,
-  Ab: 8,
+  'G#': 8, Ab: 8,
   A: 9,
-  'A#': 10,
-  Bb: 10,
-  B: 11,
-  Cb: 11,
+  'A#': 10, Bb: 10,
+  B: 11, Cb: 11,
 };
 
 const pcToSemitone = (pc) => (pc && PC_TO_SEMITONE[pc] != null ? PC_TO_SEMITONE[pc] : null);
 
+// Color palette
+const NOTE_COLORS = [
+  'var(--color-fret-1)',
+  'var(--color-fret-2)',
+  'var(--color-fret-3)',
+  'var(--color-fret-4)',
+  'var(--color-fret-5)',
+  'var(--color-fret-6)',
+];
+
+const getNoteColor = (semitone) => NOTE_COLORS[semitone % NOTE_COLORS.length];
+
 // NoteTile component
-function NoteTile({ note, highlighted, isSelected, onClick }) {
+function NoteTile({ note, highlighted, isSelected, onClick, semitone }) {
+  const bgColor = highlighted || isSelected ? getNoteColor(semitone) : 'transparent';
   return (
     <div
       className={`fretboard__note 
         ${highlighted ? 'fretboard__note--highlighted' : ''} 
         ${isSelected ? 'fretboard__note--selected' : ''}`}
+      style={{ backgroundColor: bgColor, color: '#000' }}
       onClick={() => onClick(note)}
     >
       {highlighted || isSelected ? note : ''}
@@ -56,10 +61,9 @@ export default function Fretboard() {
     selectedNote,
     updateSelectedNote,
     startFret,
-    setStartFret,
   } = useFretboard();
 
-  const MAX_FRET = 22; // max fret
+  const MAX_FRET = 22;
   const visibleFrets = 8;
   const visibleFretsClamped = Math.min(visibleFrets, MAX_FRET - startFret + 1);
 
@@ -74,9 +78,7 @@ export default function Fretboard() {
 
   return (
     <div className="fretboard">
-      {/* Inner container for labels + fretboard */}
       <div className="fretboard__inner">
-        {/* String labels outside the fretboard */}
         <div className="fretboard__labels">
           {[...strings].reverse().map((stringNote, stringIndex) => (
             <div key={`string-label-${stringIndex}`} className="fretboard__string-label">
@@ -85,9 +87,7 @@ export default function Fretboard() {
           ))}
         </div>
 
-        {/* Fretboard grid */}
         <div className="fretboard__grid">
-          {/* Vertical frets */}
           {Array.from({ length: visibleFretsClamped }, (_, i) => (
             <div
               key={`fret-${i}`}
@@ -96,7 +96,6 @@ export default function Fretboard() {
             />
           ))}
 
-          {/* Fret markers (dots) */}
           {markerFrets
             .filter((f) => f >= startFret && f < startFret + visibleFretsClamped)
             .map((fretNumber) => {
@@ -127,7 +126,6 @@ export default function Fretboard() {
               );
             })}
 
-          {/* Strings and notes */}
           {[...strings].reverse().map((stringNote, stringIndex) => (
             <div key={stringIndex} className="fretboard__string">
               {Array.from({ length: visibleFretsClamped }, (_, i) => {
@@ -148,6 +146,7 @@ export default function Fretboard() {
                       note={highlighted || isSelected ? tileNote : ''}
                       highlighted={highlighted}
                       isSelected={isSelected}
+                      semitone={tileSem}
                       onClick={updateSelectedNote}
                     />
                   </div>
@@ -155,9 +154,7 @@ export default function Fretboard() {
               })}
             </div>
           ))}
-   
-        </div>
-                             {/* Fret numbers */}
+
           {Array.from({ length: visibleFretsClamped }, (_, i) => {
             const fretNumber = startFret + i;
             const leftPercent = ((i + 0.5) / visibleFretsClamped) * 100;
@@ -171,9 +168,8 @@ export default function Fretboard() {
               </div>
             );
           })}
-      
+        </div>
       </div>
-
     </div>
   );
 }
