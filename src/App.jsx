@@ -25,8 +25,8 @@ function App() {
         <div className="small-screen-message">
           <h2>Please use a larger screen</h2>
           <p>
-            This fretboard app isn’t available on small screens yet.  
-            Try resizing your window or use our mobile apps in the App Store or Google Play.
+            This fretboard app isn’t available on small screens yet. Try resizing your window or use
+            our mobile apps in the App Store or Google Play.
           </p>
         </div>
       </div>

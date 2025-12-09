@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './header.css';
 
 export default function Header({ onSearch }) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   const handleSearch = () => {
     if (!query.trim()) return;
@@ -22,12 +22,16 @@ export default function Header({ onSearch }) {
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+          onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
         />
       </div>
 
       <div className="header__user">
-        <img src="/src/assets/img/user-avatar.png" alt="User Avatar" className="header__user-avatar" />
+        <img
+          src="/src/assets/img/user-avatar.png"
+          alt="User Avatar"
+          className="header__user-avatar"
+        />
       </div>
     </header>
   );

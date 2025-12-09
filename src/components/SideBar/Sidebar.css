@@ -54,8 +54,12 @@
 }
 
 @keyframes drawerSlideIn {
-  from { transform: translateX(240px); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(240px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .sidebar-drawer__close {
@@ -97,7 +101,9 @@
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.4s ease;
 }
 
 .sidebar__subitems-container.open {
@@ -109,7 +115,9 @@
   padding-left: 0.4rem;
   margin-bottom: 0.25rem;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.3s ease;
+  transition:
+    transform 0.15s ease,
+    opacity 0.3s ease;
 }
 
 .sidebar__subitem:hover {
@@ -120,4 +128,29 @@
 .sidebar__subitem--active {
   font-weight: 600;
   color: #38bacc;
+}
+
+.sidebar__save-playlist-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #38bacc; /* same accent color as your playlist pills */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.sidebar__save-playlist-btn:hover {
+  background-color: #2aa5b2; /* slightly darker on hover */
+  transform: translateY(-1px);
+}
+
+.sidebar__save-playlist-btn:active {
+  transform: translateY(0);
 }

@@ -25,10 +25,11 @@
   color: #000;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: transform 0.1s, background-color 0.2s;
+  transition:
+    transform 0.1s,
+    background-color 0.2s;
   width: 15rem;
   align-items: start;
-  
 }
 
 .control-panel__button:hover {
@@ -58,6 +59,59 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+.control-panel__playlist {
+  margin-top: -8rem;
+}
+
+.control-panel__playlist-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.control-panel__playlist-items {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.control-panel__playlist-item {
+  background-color: #38bacc;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.control-panel__add-btn {
+  display: inline-block;
+  margin-left: 2.5rem;
+  padding: 0 0.4rem;
+  background-color: var(--color-fret-4); /* accent color */
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%; /* circular */
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    background-color 0.2s;
+}
+
+.control-panel__add-btn:hover {
+  background-color: #2dd1d8; /* lighter accent on hover */
+  transform: scale(1.2); /* subtle pop effect */
+}
+
+.control-panel__remove-btn {
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 1rem;
 }
 
 .control-panel__recent-title {
@@ -112,7 +166,9 @@
   padding: 0.1rem 0.7rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
 }
 
 .control-panel__fret-btn:hover {
@@ -127,12 +183,11 @@
 }
 
 .control-panel__circle-image {
-  width: 160%;       /* scale relative to container width */
+  width: 160%; /* scale relative to container width */
   max-width: 400px; /* max size so it doesn’t overflow */
-  height: auto;     /* maintain aspect ratio */
+  height: auto; /* maintain aspect ratio */
   object-fit: contain;
   border-radius: 50%;
   border: 2px solid #fff; /* keep border */
   transition: transform 0.2s; /* optional for hover or animation */
 }
-

@@ -1,11 +1,11 @@
 /* App.css */
 .app-container {
-  max-width: 1400px;  /* keeps the design fixed at 1300px */
-  margin: 0 auto;     /* centers horizontally */
+  max-width: 1400px; /* keeps the design fixed at 1300px */
+  margin: 0 auto; /* centers horizontally */
   padding-left: 1rem; /* optional extra spacing */
   padding-right: 1rem;
   box-sizing: border-box;
-  width: 100%;        /* allows shrinking below 1300px */
+  width: 100%; /* allows shrinking below 1300px */
 }
 
 .app__content {
@@ -41,24 +41,16 @@
 
 /* Fretboard + ControlPanel fixed width at large screens */
 
-  .fretboard{
-    width: 990px; /* example: 76% of 1300px = 988px, adjust if needed */
-    margin-left: auto;
-    margin-right: auto;
-  }
+.fretboard {
+  width: 990px; /* example: 76% of 1300px = 988px, adjust if needed */
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .control-panel {
   width: 92vw;
   max-width: 990px;
   margin: 0 auto;
-}
-
-/* When sidebar is hidden */
-@media (max-width: 1300px) {
-  .main-area {
-    margin: 2rem 1rem;         /* reduce all margins */
-    border-radius: 10px;
-  }
 }
 
 /* HIDDEN OVERLAY BY DEFAULT */
@@ -68,7 +60,6 @@
 
 /* When screen is 1100px or smaller */
 @media (max-width: 1100px) {
-
   /* Hide the actual UI */
   .app-container,
   .app__content,

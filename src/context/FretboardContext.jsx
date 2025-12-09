@@ -34,6 +34,24 @@ export function FretboardProvider({ children }) {
     setSelectedNote(note);
   };
 
+  // context/FretboardContext.js
+  const [playlist, setPlaylist] = useState([]);
+
+  // Add to playlist (max 4, only chords)
+  const addToPlaylist = (item) => {
+    if (!item) return;
+    if (!Chord.get(item)?.notes) return; // only allow chords
+    setPlaylist((prev) => {
+      if (prev.includes(item)) return prev;
+      if (prev.length >= 4) return prev;
+      return [...prev, item];
+    });
+  };
+
+  const removeFromPlaylist = (item) => {
+    setPlaylist((prev) => prev.filter((i) => i !== item));
+  };
+
   return (
     <FretboardContext.Provider
       value={{
@@ -47,6 +65,10 @@ export function FretboardProvider({ children }) {
         updateSelectedNote,
         startFret,
         setStartFret,
+        playlist,
+        addToPlaylist,
+        removeFromPlaylist,
+        setPlaylist,
       }}
     >
       {children}

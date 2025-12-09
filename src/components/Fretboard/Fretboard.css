@@ -95,11 +95,11 @@
 
 /* Fret numbers inside small circles (between frets) */
 .fretboard__fret-number {
-   position: absolute;
-  bottom: -2.8rem;      /* sits just below the fretboard */
+  position: absolute;
+  bottom: -2.8rem; /* sits just below the fretboard */
   left: 50%;
   transform: translateX(-50%);
-  
+
   width: 22px;
   height: 22px;
 
@@ -150,12 +150,12 @@
 
 /* Note tile */
 .fretboard__note {
-  width: 45px;            /* fixed size for the circle */
+  width: 45px; /* fixed size for the circle */
   height: 45px;
   background-color: #fff; /* default color, can change when highlighted */
-  border-radius: 50%;     /* makes it circular */
+  border-radius: 50%; /* makes it circular */
   color: #000;
-  font-size: 1rem;     /* small label inside circle */
+  font-size: 1rem; /* small label inside circle */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +167,7 @@
 }
 
 .fretboard__note:hover {
-   transform: translateY(-2px) scale(1.2); /* subtle hover effect */
+  transform: translateY(-2px) scale(1.2); /* subtle hover effect */
 }
 
 .fretboard__note--highlighted {

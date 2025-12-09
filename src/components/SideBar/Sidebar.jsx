@@ -40,13 +40,13 @@ const sidebarData = [
     ],
   },
   {
-    title: 'CREATIONS',
+    title: '',
     categories: [{ name: 'Playlists', items: ['Create New Playlist'] }],
   },
 ];
 
 export default function Sidebar() {
-  const { updateChord, updateScale, selectedChord, selectedScale } = useFretboard();
+  const { updateChord, updateScale, selectedChord, selectedScale, addToPlaylist } = useFretboard();
   const [openCategory, setOpenCategory] = useState('');
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -64,6 +64,9 @@ export default function Sidebar() {
           {section.categories.map((cat) => {
             const key = section.title + cat.name;
             const isOpen = openCategory === key;
+
+            // Special case: CREATIONS → Playlists, include "Save Current Chord" button
+            const isPlaylistsCategory = section.title === '' && cat.name === 'Playlists';
 
             return (
               <div key={cat.name} className="sidebar__category">
@@ -86,12 +89,23 @@ export default function Sidebar() {
                       onClick={() => {
                         if (section.title === 'CHORDS') updateChord(item);
                         if (section.title === 'SCALES') updateScale(item);
-                        setDrawerOpen(false); // close drawer when selecting
+                        setDrawerOpen(false);
                       }}
                     >
                       {item}
                     </div>
                   ))}
+
+                  {isPlaylistsCategory && (
+                    <button
+                      className="sidebar__save-playlist-btn"
+                      onClick={() => {
+                        if (selectedChord) addToPlaylist(selectedChord);
+                      }}
+                    >
+                      Save Current Chord to Playlist
+                    </button>
+                  )}
                 </div>
               </div>
             );
@@ -103,12 +117,8 @@ export default function Sidebar() {
 
   return (
     <>
-
-
       {/* Desktop Sidebar */}
-      <aside className="sidebar">
-        {sidebarContent}
-      </aside>
+      <aside className="sidebar">{sidebarContent}</aside>
 
       {/* Floating drawer */}
       {drawerOpen && (
@@ -117,12 +127,11 @@ export default function Sidebar() {
             ✕
           </button>
 
-          <div className="sidebar-drawer__content">
-            {sidebarContent}
-          </div>
+          <div className="sidebar-drawer__content">{sidebarContent}</div>
         </div>
       )}
-            {/* Hamburger only <1250px */}
+
+      {/* Hamburger only <1250px */}
       <button className="sidebar__hamburger" onClick={() => setDrawerOpen(true)}>
         ☰
       </button>
