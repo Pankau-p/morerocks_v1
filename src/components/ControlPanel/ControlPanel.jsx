@@ -15,6 +15,7 @@ export default function ControlPanel() {
     highlightedNotesScale,
   } = useFretboard();
 
+  
   const MAX_FRET = 22;
   const VISIBLE_FRETS = 8;
 

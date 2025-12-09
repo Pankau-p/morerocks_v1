@@ -48,14 +48,15 @@ const sidebarData = [
 export default function Sidebar() {
   const { updateChord, updateScale, selectedChord, selectedScale } = useFretboard();
   const [openCategory, setOpenCategory] = useState('');
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleCategory = (section, category) => {
     const key = section + category;
     setOpenCategory((prev) => (prev === key ? '' : key));
   };
 
-  return (
-    <div className="sidebar">
+  const sidebarContent = (
+    <>
       {sidebarData.map((section) => (
         <div key={section.title} className="sidebar__section">
           <div className="sidebar__section-title">{section.title}</div>
@@ -85,6 +86,7 @@ export default function Sidebar() {
                       onClick={() => {
                         if (section.title === 'CHORDS') updateChord(item);
                         if (section.title === 'SCALES') updateScale(item);
+                        setDrawerOpen(false); // close drawer when selecting
                       }}
                     >
                       {item}
@@ -96,6 +98,34 @@ export default function Sidebar() {
           })}
         </div>
       ))}
-    </div>
+    </>
+  );
+
+  return (
+    <>
+
+
+      {/* Desktop Sidebar */}
+      <aside className="sidebar">
+        {sidebarContent}
+      </aside>
+
+      {/* Floating drawer */}
+      {drawerOpen && (
+        <div className="sidebar-drawer">
+          <button className="sidebar-drawer__close" onClick={() => setDrawerOpen(false)}>
+            ✕
+          </button>
+
+          <div className="sidebar-drawer__content">
+            {sidebarContent}
+          </div>
+        </div>
+      )}
+            {/* Hamburger only <1250px */}
+      <button className="sidebar__hamburger" onClick={() => setDrawerOpen(true)}>
+        ☰
+      </button>
+    </>
   );
 }

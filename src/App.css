@@ -33,22 +33,78 @@
 
 /* Sidebar */
 .sidebar {
-  flex: 0 0 200px; /* fixed width */
+  flex: 0 0 150px; /* fixed width */
   height: 100%;
   overflow-y: auto;
   background-color: transparent; /* no background, black shows through */
 }
 
 /* Fretboard + ControlPanel fixed width at large screens */
-@media (min-width: 1300px) {
+
   .fretboard{
     width: 990px; /* example: 76% of 1300px = 988px, adjust if needed */
     margin-left: auto;
     margin-right: auto;
   }
-  .control-panel {
-    width: 1000px; /* example: 76% of 1300px = 988px, adjust if needed */
-    margin-left: auto;
-    margin-right: auto;
+
+.control-panel {
+  width: 92vw;
+  max-width: 990px;
+  margin: 0 auto;
+}
+
+/* When sidebar is hidden */
+@media (max-width: 1300px) {
+  .main-area {
+    margin: 2rem 1rem;         /* reduce all margins */
+    border-radius: 10px;
+  }
+}
+
+/* HIDDEN OVERLAY BY DEFAULT */
+.small-screen-overlay {
+  display: none;
+}
+
+/* When screen is 1100px or smaller */
+@media (max-width: 1100px) {
+
+  /* Hide the actual UI */
+  .app-container,
+  .app__content,
+  .main-area,
+  .sidebar,
+  header {
+    display: none !important;
+  }
+
+  /* Show overlay */
+  .small-screen-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    position: fixed;
+    inset: 0;
+    background: #111;
+    color: white;
+    padding: 2rem;
+    z-index: 9999;
+  }
+
+  .small-screen-message {
+    max-width: 500px;
+  }
+
+  .small-screen-message h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  .small-screen-message p {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    opacity: 0.9;
   }
 }

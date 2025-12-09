@@ -1,3 +1,4 @@
+/* NORMAL DESKTOP SIDEBAR */
 .sidebar {
   width: 200px;
   height: 100%;
@@ -8,6 +9,65 @@
   overflow-y: auto;
 }
 
+/* HIDE SIDEBAR BELOW 1250px */
+@media (max-width: 1250px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* HAMBURGER BUTTON */
+.sidebar__hamburger {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 200;
+  padding: 0.6rem 0.9rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #2a2a2a;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 1250px) {
+  .sidebar__hamburger {
+    display: block;
+  }
+}
+
+/* FLOATING DRAWER */
+.sidebar-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 240px;
+  height: 100%;
+  padding: 4rem;
+  background-color: #1f1f1f;
+  z-index: 300;
+  overflow-y: auto;
+  animation: drawerSlideIn 0.25s ease-out;
+  border-right: 2px solid #333;
+}
+
+@keyframes drawerSlideIn {
+  from { transform: translateX(240px); }
+  to { transform: translateX(0); }
+}
+
+.sidebar-drawer__close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/*** Sidebar Content Styles ***/
 .sidebar__section,
 .sidebar__category,
 .sidebar__subitem {
@@ -41,7 +101,7 @@
 }
 
 .sidebar__subitems-container.open {
-  max-height: 500px; /* big enough for all subitems */
+  max-height: 500px;
   opacity: 1;
 }
 
