@@ -1,25 +1,58 @@
+# Fretboard Trainer App
 
-# morerocks_v1
-Fretboard Helper for Guitarists
-=======
->>>>>>> db79562 (FretboardContext)
-# React + Vite
+The **Fretboard Trainer** is an interactive web application for exploring guitar chords, scales, intervals, and note positions on a virtual fretboard. It is designed to support learning, experimentation, and quick theory visualization.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Interactive Fretboard
+- Displays notes across all strings and positions.
+- Highlights intervals and note names for the selected chord or scale.
+- Adjustable starting fret for shifting the visible fret range.
 
-## React Compiler
+### Chord & Scale Browser
+- Sidebar organized into categories (major, minor, diminished, augmented, dominant, and multiple scale types).
+- Selecting a chord or scale updates the fretboard instantly.
+- Fully responsive layout with a collapsible drawer on smaller screens.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+### Playlist System
+- Save up to four chords for quick access.
+- Add chords from the control panel or from the sidebar under **Creations → Playlists**.
+- Useful for building small progressions or storing frequently used shapes.
 
-## Expanding the ESLint configuration
+### Control Panel
+- Displays the currently selected chord or scale.
+- Shows intervals and note lists.
+- Provides fret-shift controls.
+- Includes a button for adding the current chord to the playlist.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-<<<<<<< HEAD
-=======
->>>>>>> 6160063 (Initial Commit)
->>>>>>> db79562 (FretboardContext)
+---
+
+## Technologies Used
+
+- React  
+- Vite  
+- Tonal.js  
+- CSS Modules
+
+---
+
+## Project Structure
+src/
+components/
+    Header/
+    Fretboard/
+    ControlPanel/
+    Sidebar/
+context/
+    FretboardContext.jsx
+assets/
+    img/
+App.jsx
+main.jsx
+
+
+## Installation
+npm install
+npm run dev

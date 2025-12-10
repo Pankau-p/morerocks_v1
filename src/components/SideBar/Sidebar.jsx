@@ -1,4 +1,14 @@
-import React, { useState } from 'react';
+/**
+ * File: Sidebar.jsx
+ * Description:
+ *    Sidebar component for the Fretboard App.
+ *    Renders sections for Chords, Scales, and Playlists,
+ *    handles category expansion, item selection, and
+ *    integrates with FretboardContext for state updates.
+ */
+
+
+import { useState } from 'react';
 import { useFretboard } from '../../context/FretboardContext';
 import './Sidebar.css';
 

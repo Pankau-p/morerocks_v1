@@ -1,3 +1,11 @@
+/**
+ * File: Sidebar.css
+ * Description:
+ *    Styles for the Sidebar component of the Fretboard App,
+ *    including layout for sections, categories, subitems,
+ *    the floating drawer, and responsive behavior for smaller screens.
+ */
+
 /* NORMAL DESKTOP SIDEBAR */
 .sidebar {
   width: 200px;
@@ -134,7 +142,7 @@
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.4rem 0.8rem;
-  background-color: #38bacc; /* same accent color as your playlist pills */
+  background-color: #38bacc; 
   color: #fff;
   border: none;
   border-radius: 8px;

@@ -1,24 +1,32 @@
-/* App.css */
+/**
+ * File: App.css
+ * Description:
+ *    Styles for the Fretboard App layout and components.
+ *    Includes global container styles, main content area,
+ *    Fretboard and ControlPanel sizing, Sidebar layout, 
+ *    and small-screen overlay handling.
+ */
+
 .app-container {
-  max-width: 1400px; /* keeps the design fixed at 1300px */
+  max-width: 1400px; 
   margin: 0 auto; /* centers horizontally */
-  padding-left: 1rem; /* optional extra spacing */
+  padding-left: 1rem; /* extra spacing */
   padding-right: 1rem;
   box-sizing: border-box;
-  width: 100%; /* allows shrinking below 1300px */
+  width: 100%; 
 }
 
 .app__content {
   display: flex;
-  height: calc(100vh - 80px); /* adjust for header */
+  height: calc(100vh - 80px); 
   width: 100%;
   overflow: hidden; /* prevent scrolling */
-  background-color: transparent; /* underlying black shows through */
+  background-color: transparent; 
 }
 
 /* Main area: grey rectangle */
 .main-area {
-  flex: 1; /* take remaining space next to sidebar */
+  flex: 1; 
   display: flex;
   flex-direction: column; /* Fretboard on top, ControlPanel below */
   background-color: #2a2a2a; /* grey rectangle */

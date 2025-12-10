@@ -1,3 +1,12 @@
+/**
+ * File: App.jsx
+ * Description:
+ *    Main component for the Fretboard App. 
+ *    Sets up the Fretboard context, layout, and renders
+ *    core UI components including Header, Fretboard,
+ *    ControlPanel, and Sidebar.
+ */
+
 import { FretboardProvider } from './context/FretboardContext';
 import Header from './components/Header/Header';
 import Sidebar from './components/SideBar/Sidebar';
@@ -7,16 +16,22 @@ import './App.css';
 
 function App() {
   return (
+    // Provide fretboard context to all child components
     <FretboardProvider>
       <div className="app-container">
+
         <Header />
 
         <div className="app__content">
           <div className="main-area">
+
             <Fretboard />
             <ControlPanel />
+       
           </div>
+
           <Sidebar />
+          
         </div>
       </div>
 

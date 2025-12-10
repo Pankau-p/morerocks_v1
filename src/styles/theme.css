@@ -1,3 +1,11 @@
+/**
+ * File: theme.css
+ * Description:
+ *    Defines the Fretboard App’s color scheme, typography,
+ *    and reusable theme variables for consistent styling 
+ *    across components.
+ */
+
 :root {
   /* -----------------------------
      COLORS — GLOBAL
@@ -6,6 +14,7 @@
   --color-text: #ffffff;
   --color-text-highlight: #38bacc;
   --color-fretboard-number: #004152;
+
   /* Fretboard greys */
   --color-fretboard-bg: #1f1f1f;
   --color-grey-1: #1f1f1f;
@@ -15,7 +24,7 @@
   --color-fret-2: #ceb3ff;
   --color-fret-3: #ffb3b3;
   --color-fret-4: #b3ffb3;
-  --color-fret-5: #ffe8b3; /* suggested soft yellow */
+  --color-fret-5: #ffe8b3; 
   --color-fret-6: #c06639;
 
   /* -----------------------------

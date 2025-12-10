@@ -1,3 +1,12 @@
+/**
+ * File: FretboardContext.jsx
+ * Description:
+ *    Provides the Fretboard context for the Fretboard App.
+ *    Manages state related to selected chords, scales, notes,
+ *    highlighted notes, fretboard start position, and playlist.
+ *    Exposes context and hooks for use in child components.
+ */
+
 import { createContext, useContext, useState } from 'react';
 import * as Chord from '@tonaljs/chord';
 import * as Scale from '@tonaljs/scale';

@@ -1,4 +1,12 @@
-import React, { useState, useEffect } from 'react';
+/**
+ * File: ControlPanel.jsx
+ * Description:
+ *    Control panel component for the Fretboard App.
+ *    Provides UI for selecting chords, scales, and other
+ *    fretboard-related settings, interacting with FretboardContext.
+ */
+
+import { useState, useEffect } from 'react';
 import { useFretboard } from '../../context/FretboardContext';
 import * as Chord from '@tonaljs/chord';
 import * as Scale from '@tonaljs/scale';
