@@ -7,7 +7,7 @@
  *    allows selection of individual notes.
  */
 
-import React from 'react';
+
 import { useFretboard } from '../../context/FretboardContext';
 import { Note } from 'tonal';
 import './Fretboard.css';
@@ -19,7 +19,29 @@ const getPitchClass = (note) => {
 };
 
 // Mapping pitch classes to semitone numbers
-const PC_TO_SEMITONE = { C: 0, 'B#': 0, 'C#': 1, Db: 1, D: 2, 'D#': 3, Eb: 3, E: 4, Fb: 4, 'E#': 5, F: 5, 'F#': 6, Gb: 6, G: 7, 'G#': 8, Ab: 8, A: 9, 'A#': 10, Bb: 10, B: 11, Cb: 11, };
+const PC_TO_SEMITONE = {
+  C: 0,
+  'B#': 0,
+  'C#': 1,
+  Db: 1,
+  D: 2,
+  'D#': 3,
+  Eb: 3,
+  E: 4,
+  Fb: 4,
+  'E#': 5,
+  F: 5,
+  'F#': 6,
+  Gb: 6,
+  G: 7,
+  'G#': 8,
+  Ab: 8,
+  A: 9,
+  'A#': 10,
+  Bb: 10,
+  B: 11,
+  Cb: 11,
+};
 const pcToSemitone = (pc) => (pc && PC_TO_SEMITONE[pc] != null ? PC_TO_SEMITONE[pc] : null);
 
 // Color palette for highlighted notes

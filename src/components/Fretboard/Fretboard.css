@@ -6,7 +6,6 @@
  *    and highlighting for selected chords, scales, and notes.
  */
 
-
 .fretboard {
   position: relative;
   width: 76vw; /* 2/3 screen width */

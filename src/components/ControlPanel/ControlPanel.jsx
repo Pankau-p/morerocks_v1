@@ -21,7 +21,6 @@ export default function ControlPanel() {
     highlightedNotesChord,
     highlightedNotesScale,
     updateChord,
-    updateScale,
   } = useFretboard();
 
   const MAX_FRET = 22;
@@ -67,7 +66,8 @@ export default function ControlPanel() {
     <div className="control-panel">
       {/* Left buttons */}
       <div className="control-panel__left">
-        <button className="control-panel__button control-panel__button--fret">
+        {/* Low Fret controls (fixed) */}
+        <div className="control-panel__button control-panel__button--fret">
           <div className="control-panel__low-fret">
             <span className="control-panel__label">Low Fret:</span>
             <button className="control-panel__fret-btn" onClick={handleFretDown}>
@@ -78,8 +78,9 @@ export default function ControlPanel() {
               ▶
             </button>
           </div>
-        </button>
+        </div>
 
+        {/* Chord/Scale display */}
         <button className="control-panel__button control-panel__button--chord">
           {mainValue || 'No chord/scale'}
           {mainValue && isChord && (
@@ -89,10 +90,12 @@ export default function ControlPanel() {
           )}
         </button>
 
+        {/* Intervals display */}
         <button className="control-panel__button control-panel__button--mode">
           Intervals: {intervals.join(', ') || ''}
         </button>
 
+        {/* Notes display */}
         <button className="control-panel__button control-panel__button--relative">
           Notes: {notes.join(', ') || ''}
         </button>

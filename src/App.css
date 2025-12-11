@@ -8,25 +8,25 @@
  */
 
 .app-container {
-  max-width: 1400px; 
+  max-width: 1400px;
   margin: 0 auto; /* centers horizontally */
   padding-left: 1rem; /* extra spacing */
   padding-right: 1rem;
   box-sizing: border-box;
-  width: 100%; 
+  width: 100%;
 }
 
 .app__content {
   display: flex;
-  height: calc(100vh - 80px); 
+  height: calc(100vh - 80px);
   width: 100%;
   overflow: hidden; /* prevent scrolling */
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 /* Main area: grey rectangle */
 .main-area {
-  flex: 1; 
+  flex: 1;
   display: flex;
   flex-direction: column; /* Fretboard on top, ControlPanel below */
   background-color: #2a2a2a; /* grey rectangle */

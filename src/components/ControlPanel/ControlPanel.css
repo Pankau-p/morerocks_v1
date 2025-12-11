@@ -5,7 +5,6 @@
  *    including layout, inputs, buttons, and responsive adjustments.
  */
 
-
 .control-panel {
   display: flex;
   width: 76vw; /* same as fretboard */
@@ -46,6 +45,7 @@
 /* Theme colors for each button */
 .control-panel__button--fret {
   background-color: var(--color-fret-1);
+  padding-left: 3rem;
 }
 .control-panel__button--chord {
   background-color: var(--color-fret-2);
@@ -195,5 +195,5 @@
   object-fit: contain;
   border-radius: 50%;
   border: 2px solid #fff; /* keep border */
-  transition: transform 0.2s; 
+  transition: transform 0.2s;
 }

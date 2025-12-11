@@ -7,7 +7,6 @@
  *    integrates with FretboardContext for state updates.
  */
 
-
 import { useState } from 'react';
 import { useFretboard } from '../../context/FretboardContext';
 import './Sidebar.css';
