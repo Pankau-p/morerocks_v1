@@ -4,6 +4,8 @@ The **Fretboard Trainer** is an interactive web application for exploring guitar
 
 ---
 
+View the live site at: https://pankau-p.github.io/morerocks_v1/
+
 ## Features
 
 ### Interactive Fretboard
