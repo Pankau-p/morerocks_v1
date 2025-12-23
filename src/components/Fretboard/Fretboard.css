@@ -9,7 +9,7 @@
 .fretboard {
   position: relative;
   width: 76vw; /* 2/3 screen width */
-  height: 38vh; /* 1/4 screen height */
+  /* height: 38vh; 1/4 screen height */
   background-color: var(--color-bg, #1f1f1f);
   border-radius: 8px;
   display: flex;

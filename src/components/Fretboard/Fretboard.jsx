@@ -178,7 +178,7 @@ export default function Fretboard() {
               })}
             </div>
           ))}
-
+{/* INSERT FIX HERE... */}
           {/* Fret numbers */}
           {Array.from({ length: visibleFretsClamped }, (_, i) => {
             const fretNumber = startFret + i;

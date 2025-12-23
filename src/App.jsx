@@ -37,7 +37,7 @@ function App() {
           <h2>Please use a larger screen</h2>
           <p>
             This fretboard app isn’t available on small screens yet. Try resizing your window or use
-            our mobile apps in the App Store or Google Play.
+            another mobile app in the App Store or Google Play.
           </p>
         </div>
       </div>

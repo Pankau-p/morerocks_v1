@@ -20,7 +20,7 @@
   display: flex;
   height: calc(100vh - 80px);
   width: 100%;
-  overflow: hidden; /* prevent scrolling */
+  overflow-y: auto; /* prevent scrolling */
   background-color: transparent;
 }
 
@@ -35,7 +35,7 @@
   box-sizing: border-box;
   min-width: 0; /* allow content to shrink */
   border-radius: 12px; /* optional, for rectangle shape */
-  overflow: hidden; /* prevent internal overflow */
+  overflow-y: auto; /* prevent internal overflow */
   margin: 3rem 1.5rem 4rem 3rem; /* space from left edge of viewport */
 }
 
