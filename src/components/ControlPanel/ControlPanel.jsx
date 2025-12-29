@@ -11,7 +11,7 @@ import { useFretboard } from '../../context/FretboardContext';
 import * as Chord from '@tonaljs/chord';
 import * as Scale from '@tonaljs/scale';
 import './ControlPanel.css';
-import circleOfFifths from '../../assets/img/circle-of-fifths.png'
+import circleOfFifths from '../../assets/img/circle-of-fifths.png';
 
 export default function ControlPanel() {
   const {
@@ -127,13 +127,8 @@ export default function ControlPanel() {
 
       {/* Right: Circle of Fifths */}
       <div className="control-panel__right">
-        <img
-          src={circleOfFifths}
-          alt="Circle of Fifths"
-          className="control-panel__circle-image"
-        />
+        <img src={circleOfFifths} alt="Circle of Fifths" className="control-panel__circle-image" />
       </div>
     </div>
   );
 }
-

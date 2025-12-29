@@ -8,8 +8,8 @@
 
 import { useState } from 'react';
 import './header.css';
-import logo2 from "../../assets/img/logo2.jpg"
-import userAvatar from '../../assets/img/user-avatar.png'
+import logo2 from '../../assets/img/logo2.jpg';
+import userAvatar from '../../assets/img/user-avatar.png';
 
 export default function Header({ onSearch }) {
   const [query, setQuery] = useState('');
@@ -41,11 +41,7 @@ export default function Header({ onSearch }) {
 
       {/* User avatar section */}
       <div className="header__user">
-        <img
-          src={userAvatar}
-          alt="User Avatar"
-          className="header__user-avatar"
-        />
+        <img src={userAvatar} alt="User Avatar" className="header__user-avatar" />
       </div>
     </header>
   );

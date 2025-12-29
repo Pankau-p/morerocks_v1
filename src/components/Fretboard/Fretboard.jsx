@@ -7,7 +7,6 @@
  *    allows selection of individual notes.
  */
 
-
 import { useFretboard } from '../../context/FretboardContext';
 import { Note } from 'tonal';
 import './Fretboard.css';
@@ -178,7 +177,7 @@ export default function Fretboard() {
               })}
             </div>
           ))}
-{/* INSERT FIX HERE... */}
+          {/* INSERT FIX HERE... */}
           {/* Fret numbers */}
           {Array.from({ length: visibleFretsClamped }, (_, i) => {
             const fretNumber = startFret + i;

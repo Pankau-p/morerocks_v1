@@ -162,3 +162,38 @@
 .sidebar__save-playlist-btn:active {
   transform: translateY(0);
 }
+
+/* Onboarding sidebar background highlight */
+.sidebar--highlight {
+  background-color: #262f36;
+  box-shadow: inset 0 0 0 2px #38bacc;
+  transition: background-color 0.4s ease;
+}
+
+/* Flash CHORDS title */
+.sidebar__section-title--highlight {
+  color: #38bacc;
+  font-weight: 700;
+  animation: pulse 1.2s ease-in-out 1;
+}
+
+/* Flash C chord */
+.sidebar__subitem--highlight {
+  background-color: rgba(56, 186, 204, 0.2);
+  border-left: 3px solid #38bacc;
+  padding-left: 0.6rem;
+  animation: pulse 1.2s ease-in-out 1;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}

@@ -1,5 +1,7 @@
 # Fretboard Trainer App
 
+
+
 The **Fretboard Trainer** is an interactive web application for exploring guitar chords, scales, intervals, and note positions on a virtual fretboard. It is designed to support learning, experimentation, and quick theory visualization.
 
 ---
