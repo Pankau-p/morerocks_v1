@@ -1,7 +1,9 @@
 /**
  * File: Sidebar.jsx
  * Description:
- *    Sidebar component for the Fretboard App with beginner onboarding highlights.
+ * Sidebar component for the Fretboard App.
+ * Includes chords, scales, playlists, mobile drawer,
+ * and beginner onboarding highlights.
  */
 
 import { useState, useEffect, useRef } from 'react';
@@ -20,36 +22,64 @@ const sidebarData = [
         name: 'Minor Chords',
         items: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
       },
+      {
+        name: 'Diminished Chords',
+        items: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+      },
+      {
+        name: 'Augmented Chords',
+        items: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+      },
+      {
+        name: 'Dominant Chords',
+        items: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'],
+      },
     ],
   },
   {
     title: 'SCALES',
-    categories: [{ name: 'Major Scale', items: ['C Major', 'C# Major', 'D Major'] }],
+    categories: [
+      { name: 'Major Scale', items: ['C Major', 'C# Major', 'D Major', 'D# Major'] },
+      { name: 'Minor Scale', items: ['C Minor', 'C# Minor', 'D Minor', 'D# Minor'] },,
+    ],
+  },
+  {
+    title: '',
+    categories: [
+      {
+        name: 'Playlists',
+        items: ['Create New Playlist'],
+      },
+    ],
   },
 ];
 
 export default function Sidebar() {
-  const { updateChord, updateScale, selectedChord, selectedScale } = useFretboard();
+  const {
+    updateChord,
+    updateScale,
+    selectedChord,
+    selectedScale,
+    addToPlaylist,
+  } = useFretboard();
 
   const [openCategory, setOpenCategory] = useState('');
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // Onboarding state
+  // Onboarding
   const [onboardingStep, setOnboardingStep] = useState(0);
   const [highlightChordsTitle, setHighlightChordsTitle] = useState(false);
   const [highlightCChord, setHighlightCChord] = useState(false);
   const onboardingRan = useRef(false);
 
-  // 🔹 Onboarding sequence
   useEffect(() => {
     if (onboardingRan.current) return;
     onboardingRan.current = true;
+
     const timers = [];
 
-    // Step 1: highlight sidebar background
     timers.push(setTimeout(() => setOnboardingStep(1), 300));
-    console.log('onboarding start');
-    // Step 2: flash CHORDS title
+
     timers.push(
       setTimeout(() => {
         setHighlightChordsTitle(true);
@@ -57,14 +87,12 @@ export default function Sidebar() {
       }, 800)
     );
 
-    // Step 3: expand Major Chords
     timers.push(
       setTimeout(() => {
         setOpenCategory('CHORDSMajor Chords');
       }, 2200)
     );
 
-    // Step 4: flash C chord
     timers.push(
       setTimeout(() => {
         setHighlightCChord(true);
@@ -72,11 +100,10 @@ export default function Sidebar() {
       }, 3200)
     );
 
-    // Step 5: show C Major on fretboard
     timers.push(
       setTimeout(() => {
         updateChord('C');
-        setOnboardingStep(0); // stop sidebar background highlight
+        setOnboardingStep(0);
       }, 4600)
     );
 
@@ -88,11 +115,11 @@ export default function Sidebar() {
     setOpenCategory((prev) => (prev === key ? '' : key));
   };
 
-  return (
+  const sidebarContent = (
     <>
-      <aside className={`sidebar ${onboardingStep === 1 ? 'sidebar--highlight' : ''}`}>
-        {sidebarData.map((section) => (
-          <div key={section.title} className="sidebar__section">
+      {sidebarData.map((section) => (
+        <div key={section.title} className="sidebar__section">
+          {section.title && (
             <div
               className={`sidebar__section-title ${
                 highlightChordsTitle && section.title === 'CHORDS'
@@ -102,53 +129,89 @@ export default function Sidebar() {
             >
               {section.title}
             </div>
+          )}
 
-            {section.categories.map((cat) => {
-              const key = section.title + cat.name;
-              const isOpen = openCategory === key;
+          {section.categories.map((cat) => {
+            const key = section.title + cat.name;
+            const isOpen = openCategory === key;
+            const isPlaylistsCategory =
+              section.title === '' && cat.name === 'Playlists';
 
-              return (
-                <div key={cat.name} className="sidebar__category">
-                  <div
-                    className="sidebar__category-title"
-                    onClick={() => toggleCategory(section.title, cat.name)}
-                  >
-                    {cat.name}
-                  </div>
-
-                  <div className={`sidebar__subitems-container ${isOpen ? 'open' : ''}`}>
-                    {cat.items.map((item) => {
-                      const isActive = item === selectedChord || item === selectedScale;
-
-                      const isOnboardingC =
-                        highlightCChord &&
-                        section.title === 'CHORDS' &&
-                        cat.name === 'Major Chords' &&
-                        item === 'C';
-
-                      return (
-                        <div
-                          key={item}
-                          className={`sidebar__subitem ${
-                            isActive ? 'sidebar__subitem--active' : ''
-                          } ${isOnboardingC ? 'sidebar__subitem--highlight' : ''}`}
-                          onClick={() => {
-                            if (section.title === 'CHORDS') updateChord(item);
-                            if (section.title === 'SCALES') updateScale(item);
-                            setDrawerOpen(false);
-                          }}
-                        >
-                          {item}
-                        </div>
-                      );
-                    })}
-                  </div>
+            return (
+              <div key={cat.name} className="sidebar__category">
+                <div
+                  className="sidebar__category-title"
+                  onClick={() => toggleCategory(section.title, cat.name)}
+                >
+                  {cat.name}
                 </div>
-              );
-            })}
-          </div>
-        ))}
+
+                <div className={`sidebar__subitems-container ${isOpen ? 'open' : ''}`}>
+                  {cat.items.map((item) => {
+                    const isActive =
+                      item === selectedChord || item === selectedScale;
+
+                    const isOnboardingC =
+                      highlightCChord &&
+                      section.title === 'CHORDS' &&
+                      cat.name === 'Major Chords' &&
+                      item === 'C';
+
+                    return (
+                      <div
+                        key={item}
+                        className={`sidebar__subitem ${
+                          isActive ? 'sidebar__subitem--active' : ''
+                        } ${isOnboardingC ? 'sidebar__subitem--highlight' : ''}`}
+                        onClick={() => {
+                          if (section.title === 'CHORDS') updateChord(item);
+                          if (section.title === 'SCALES') updateScale(item);
+                          setDrawerOpen(false);
+                        }}
+                      >
+                        {item}
+                      </div>
+                    );
+                  })}
+
+                  {isPlaylistsCategory && (
+                    <button
+                      className="sidebar__save-playlist-btn"
+                      onClick={() => {
+                        if (selectedChord) addToPlaylist(selectedChord);
+                      }}
+                    >
+                      Save Current Chord to Playlist
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ))}
+    </>
+  );
+
+  return (
+    <>
+      {/* Desktop Sidebar */}
+      <aside className={`sidebar ${onboardingStep === 1 ? 'sidebar--highlight' : ''}`}>
+        {sidebarContent}
       </aside>
+
+      {/* Mobile Drawer */}
+      {drawerOpen && (
+        <div className="sidebar-drawer">
+          <button
+            className="sidebar-drawer__close"
+            onClick={() => setDrawerOpen(false)}
+          >
+            ✕
+          </button>
+          <div className="sidebar-drawer__content">{sidebarContent}</div>
+        </div>
+      )}
 
       {/* Hamburger */}
       <button className="sidebar__hamburger" onClick={() => setDrawerOpen(true)}>

@@ -74,7 +74,7 @@ export default function ControlPanel() {
             <button className="control-panel__fret-btn" onClick={handleFretDown}>
               ◀
             </button>
-            <span className="control-panel__fret-value">{startFret}</span>
+            <span className="control-panel__fret-value">{startFret -1}</span>
             <button className="control-panel__fret-btn" onClick={handleFretUp}>
               ▶
             </button>

@@ -126,7 +126,7 @@ export default function Fretboard() {
               // Double dot for 12th fret
               if (fretNumber === 12) {
                 return (
-                  <React.Fragment key={`marker-${fretNumber}`}>
+                  <>
                     <div
                       className="fretboard__marker"
                       style={{ left: `${leftPercent}%`, top: '35%' }}
@@ -135,7 +135,7 @@ export default function Fretboard() {
                       className="fretboard__marker"
                       style={{ left: `${leftPercent}%`, top: '65%' }}
                     />
-                  </React.Fragment>
+                  </>
                 );
               }
 
@@ -177,7 +177,6 @@ export default function Fretboard() {
               })}
             </div>
           ))}
-          {/* INSERT FIX HERE... */}
           {/* Fret numbers */}
           {Array.from({ length: visibleFretsClamped }, (_, i) => {
             const fretNumber = startFret + i;
@@ -188,7 +187,7 @@ export default function Fretboard() {
                 className="fretboard__fret-number"
                 style={{ left: `${leftPercent}%` }}
               >
-                {fretNumber}
+                {fretNumber - 1}
               </div>
             );
           })}
