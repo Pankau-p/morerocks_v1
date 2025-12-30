@@ -40,7 +40,8 @@ const sidebarData = [
     title: 'SCALES',
     categories: [
       { name: 'Major Scale', items: ['C Major', 'C# Major', 'D Major', 'D# Major'] },
-      { name: 'Minor Scale', items: ['C Minor', 'C# Minor', 'D Minor', 'D# Minor'] },,
+      { name: 'Minor Scale', items: ['C Minor', 'C# Minor', 'D Minor', 'D# Minor'] },
+      ,
     ],
   },
   {
@@ -55,13 +56,7 @@ const sidebarData = [
 ];
 
 export default function Sidebar() {
-  const {
-    updateChord,
-    updateScale,
-    selectedChord,
-    selectedScale,
-    addToPlaylist,
-  } = useFretboard();
+  const { updateChord, updateScale, selectedChord, selectedScale, addToPlaylist } = useFretboard();
 
   const [openCategory, setOpenCategory] = useState('');
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -134,8 +129,7 @@ export default function Sidebar() {
           {section.categories.map((cat) => {
             const key = section.title + cat.name;
             const isOpen = openCategory === key;
-            const isPlaylistsCategory =
-              section.title === '' && cat.name === 'Playlists';
+            const isPlaylistsCategory = section.title === '' && cat.name === 'Playlists';
 
             return (
               <div key={cat.name} className="sidebar__category">
@@ -148,8 +142,7 @@ export default function Sidebar() {
 
                 <div className={`sidebar__subitems-container ${isOpen ? 'open' : ''}`}>
                   {cat.items.map((item) => {
-                    const isActive =
-                      item === selectedChord || item === selectedScale;
+                    const isActive = item === selectedChord || item === selectedScale;
 
                     const isOnboardingC =
                       highlightCChord &&
@@ -203,10 +196,7 @@ export default function Sidebar() {
       {/* Mobile Drawer */}
       {drawerOpen && (
         <div className="sidebar-drawer">
-          <button
-            className="sidebar-drawer__close"
-            onClick={() => setDrawerOpen(false)}
-          >
+          <button className="sidebar-drawer__close" onClick={() => setDrawerOpen(false)}>
             ✕
           </button>
           <div className="sidebar-drawer__content">{sidebarContent}</div>
